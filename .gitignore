@@ -1,0 +1,18 @@
+# Debug artifacts dumped in project root
+/*.png
+/*.jpg
+/errors.txt
+/log.txt
+/textbox-crop.txt
+
+# Runtime / generated
+game/saves/
+game/*.rpyc
+game/cache/
+
+# Large SDK — download separately
+renpy-8.5.2-sdk/
+
+# Tool artifacts
+.playwright-mcp/
+.claude
