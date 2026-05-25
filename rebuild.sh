@@ -76,8 +76,22 @@ os.replace(tmp, src)
 EOF
 
 echo "Syncing images..."
-cp game/images/*.png docs/game/images/
-cp game/images/*.jpg docs/game/images/ 2>/dev/null || true
+for f in game/images/*.png game/images/*.jpg; do
+    base=$(basename "$f")
+    case "$base" in
+        icon.png|loading_page.png) ;;
+        *) cp "$f" "docs/game/images/" 2>/dev/null || true ;;
+    esac
+done
+
+echo "Bumping pwa_catalog version..."
+python3 -c "
+import json, time
+p = 'docs/pwa_catalog.json'
+d = json.load(open(p))
+d['version'] = int(time.time())
+json.dump(d, open(p,'w'))
+"
 
 echo "Done → http://localhost:8766 (press F5)"
 

@@ -27,15 +27,15 @@ init python:
 
 ## Определения персонажей
 
-define olha       = Character(None, callback=_make_cb("char_olha"),    what_color="#d4a96a")
-define ingvar     = Character(None, callback=_make_cb("char_ingvar"),  what_color="#88aacc")
-define dobryn     = Character(None, callback=_make_cb("char_dobryn"),  what_color="#aaccaa")
-define velemir    = Character(None, callback=_make_cb("char_velemir"), what_color="#cc99dd")
-define nyanya     = Character(None, callback=_make_cb("char_nyanya"),  what_color="#ddbbaa")
-define svyatoslav = Character(None, what_color="#ff9966")
-define posylny    = Character(None, callback=_make_cb("char_posylny"), what_color="#bbbbbb")
-define strazh     = Character(None, what_color="#888888")
-define avtor      = Character(None, what_italic=True, what_color="#eeeecc")
+define olha       = Character(None, callback=_make_cb("char_olha"),    what_color="#e8bc78")
+define ingvar     = Character(None, callback=_make_cb("char_ingvar"),  what_color="#9ec0e0")
+define dobryn     = Character(None, callback=_make_cb("char_dobryn"),  what_color="#a8d8a8")
+define velemir    = Character(None, callback=_make_cb("char_velemir"), what_color="#d0a8ec")
+define nyanya     = Character(None, callback=_make_cb("char_nyanya"),  what_color="#e8c8a8")
+define svyatoslav = Character(None, what_color="#e89060")
+define posylny    = Character(None, callback=_make_cb("char_posylny"), what_color="#c4bdb0")
+define strazh     = Character(None, what_color="#a8a89c")
+define avtor      = Character(None, what_italic=True, what_color="#e8d8a8")
 
 ## Изображения
 

@@ -7,7 +7,7 @@ self.addEventListener('install', function (e) {
 });
 
 self.addEventListener('activate', function (e) {
-    return self.clients.claim();
+    e.waitUntil(self.clients.claim());
 });
 
 
@@ -40,16 +40,17 @@ async function fetchAndCache(request) {
             return rv;
         }
 
+        let fetchRequest = request;
         if (cachedResponse) {
-            if (cachedResponse.headers.get('Last-Modified')) {
-                request.headers.set('If-Modified-Since', cachedResponse.headers.get('Last-Modified'));
-            }
-            if (cachedResponse.headers.get('ETag')) {
-                request.headers.set('If-None-Match', cachedResponse.headers.get('ETag'));
-            }
+            const headers = new Headers(request.headers);
+            if (cachedResponse.headers.get('Last-Modified'))
+                headers.set('If-Modified-Since', cachedResponse.headers.get('Last-Modified'));
+            if (cachedResponse.headers.get('ETag'))
+                headers.set('If-None-Match', cachedResponse.headers.get('ETag'));
+            fetchRequest = new Request(request, { headers });
         }
 
-        const response = await fetch(request);
+        const response = await fetch(fetchRequest);
 
         if (cachedResponse && response.status == 304) {
             return cachedResponse;
