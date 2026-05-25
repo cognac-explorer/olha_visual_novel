@@ -130,6 +130,7 @@ label start:
 ## Сцена 1 — Первый выбор
 
 label scene_ugovorit:
+    $ renpy.autosave()
 
     avtor "Ингвар смотрит на Ольху — ждёт последнего слова."
 
@@ -149,6 +150,7 @@ label scene_ugovorit:
 ## Сцена 2 — Прощание
 
 label scene_proshanie:
+    $ renpy.autosave()
 
     avtor "Люди разбегаются по делам. Во дворе остаются двое. Ингвар поворачивается к Ольхе."
 
@@ -181,6 +183,7 @@ label scene_proshanie:
 ## Сцена 3 — Терем. Утро
 
 label scene_terem_utro:
+    $ renpy.autosave()
 
     scene bg_terem_den
     with fade
@@ -216,6 +219,7 @@ label scene_terem_utro:
 ## Сцена 4 — Терем. Ночь второго дня
 
 label scene_terem_noch:
+    $ renpy.autosave()
 
     scene bg_terem_noch
     with fade
@@ -291,6 +295,7 @@ label scene_terem_noch:
 ## Конец первой главы
 
 label scene_konec_glavy:
+    $ renpy.autosave()
 
     scene bg_terem_noch
     with fade

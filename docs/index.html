@@ -210,6 +210,21 @@
               .then(() => { if (window.loadCache) window.loadCache(); })
               .catch(e => console.warn('Service worker registration failed:', e));
       }
+
+      // Flush Ren'Py saves to IndexedDB when the PWA goes to background or is closed.
+      // On mobile, the process can be killed immediately after visibilitychange,
+      // so we must sync here — not in beforeunload (which doesn't fire on mobile).
+      function _syncRenpyFs() {
+          if (typeof FS !== 'undefined') {
+              FS.syncfs(false, function(err) {
+                  if (err) console.warn('FS.syncfs error:', err);
+              });
+          }
+      }
+      document.addEventListener('visibilitychange', function() {
+          if (document.visibilityState === 'hidden') _syncRenpyFs();
+      });
+      window.addEventListener('pagehide', _syncRenpyFs);
   </script>
   <script src="renpy-pre.js"></script>
   <script async type="text/javascript" src="renpy.js"></script>
