@@ -65,6 +65,8 @@ label start:
 
     olha "Любимый... сердце не пущает. Я умоляю, отложи выезд! Дай дозорам вернуться — и уж тогда ступай."
 
+    $ renpy.save("auto-1", include_screenshot=False)
+
     ingvar "Казна худеет, а люди ропщут: «Князь слаб, коли дань не берёт». Выйду нынче — вернусь с утречком третьего дня. Не дрожи, лебёдушка."
 
     avtor "Он подходит к Ольхе и нежно приобнимает за плечи."
@@ -130,7 +132,7 @@ label start:
 ## Сцена 1 — Первый выбор
 
 label scene_ugovorit:
-    $ renpy.autosave()
+    $ renpy.save("auto-1", include_screenshot=False)
 
     avtor "Ингвар смотрит на Ольху — ждёт последнего слова."
 
@@ -150,7 +152,7 @@ label scene_ugovorit:
 ## Сцена 2 — Прощание
 
 label scene_proshanie:
-    $ renpy.autosave()
+    $ renpy.save("auto-1", include_screenshot=False)
 
     avtor "Люди разбегаются по делам. Во дворе остаются двое. Ингвар поворачивается к Ольхе."
 
@@ -183,7 +185,7 @@ label scene_proshanie:
 ## Сцена 3 — Терем. Утро
 
 label scene_terem_utro:
-    $ renpy.autosave()
+    $ renpy.save("auto-1", include_screenshot=False)
 
     scene bg_terem_den
     with fade
@@ -219,7 +221,7 @@ label scene_terem_utro:
 ## Сцена 4 — Терем. Ночь второго дня
 
 label scene_terem_noch:
-    $ renpy.autosave()
+    $ renpy.save("auto-1", include_screenshot=False)
 
     scene bg_terem_noch
     with fade
@@ -295,7 +297,7 @@ label scene_terem_noch:
 ## Конец первой главы
 
 label scene_konec_glavy:
-    $ renpy.autosave()
+    $ renpy.save("auto-1", include_screenshot=False)
 
     scene bg_terem_noch
     with fade
